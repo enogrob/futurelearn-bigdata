@@ -1,0 +1,34 @@
+---
+title: "Big Data on FutureLearn"
+author: "Roberto Nogueira"
+date: "April 30, 2015"
+output: html_document
+---
+
+![course logo](images/futurelearn_logo.jpg)`
+
+### Week2::Finding out what people are looking for on Wikipedia using R 
+#### SOLUTION:
+1. Download the file:
+1. Installing the required packages:
+```{r eval=FALSE}
+install.packages("RCurl")
+install.packages("RJSONIO")
+```
+
+2. Download the data: 
+```{r}
+library(RCurl)
+rawData <- getURL("http://stats.grok.se/json/en/201410/Friday")
+```
+
+3. Parsing the JSON data:
+```{r}
+library(RJSONIO)
+parsedData <- fromJSON(rawData)
+```
+
+4. Checking the parsing data:
+```{r}
+parsedData$daily_views
+```
